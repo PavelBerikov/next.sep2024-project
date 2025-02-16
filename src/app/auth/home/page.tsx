@@ -1,16 +1,23 @@
+
 import React from 'react';
-import Menu from "@/components/menu/Menu";
-import backImage from "../public/assets/back.png";
 
-
-
-const Page = () => {
+const HomePage = () => {
     return (
-        <div className={'backGround'} style={{backgroundImage: `url(${backImage})`}}>
-            <Menu/>
+        <div
+            className="background"
+            style={{
+                backgroundImage: "url('/back.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundAttachment: "fixed",
+                width: "100vw",
+                height: "100vh",
+            }}
+        >
             auth home page
         </div>
     );
 };
 
-export default Page;
+export default HomePage;

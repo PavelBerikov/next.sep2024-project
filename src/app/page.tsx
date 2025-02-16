@@ -1,10 +1,9 @@
-import Menu from "@/components/menu/Menu";
+import Recipes from "@/components/recipes/Recipes";
 
 export default function Home() {
   return (
     <div>
-        <Menu/>
-        products do not work.
+        <Recipes/>
     </div>
   );
 }
