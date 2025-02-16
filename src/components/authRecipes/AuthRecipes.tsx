@@ -1,10 +1,9 @@
 import React from 'react';
 import {recipesService} from "@/services/recipesService";
 import AuthRecipe from "@/components/authRecipe/AuthRecipe";
-import {IRecipe} from "@/interfaces/recipesInterface";
 
 const AuthRecipes = async () => {
-    const recipes:IRecipe[]= await recipesService.getRecipes();
+    const recipes= await recipesService.getRecipes();
     console.log(recipes);
     console.log('aaaaaa')
     return (
