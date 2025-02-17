@@ -1,6 +1,6 @@
 import LoginForm from "@/components/loginForm/LoginForm";
 
-export default function loginPage () {
+export default async function loginPage () {
     return (
         <div style={{
             backgroundImage: "url('/back2.jpeg')",

@@ -1,14 +1,13 @@
 import React from 'react';
-import {usersServices} from "@/services/usersServices";
+import {IUser} from "@/interfaces/userInterface";
+import User from "@/components/user/User";
+import {getUsers} from "@/server-actions/serverActions";
 
-const Users = async () => {
-    const users = await usersServices.getUsers();
-    console.log(users);
+const Users = async  () => {
+    const users:IUser[] =await getUsers()
     return (
         <div>
-            {
-
-            }
+            {users.map(user => <User key={user.id} user={user} />)}
         </div>
     );
 };

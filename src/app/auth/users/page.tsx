@@ -1,18 +1,17 @@
-'use client'
-
-
+import Users from '@/components/users/Users';
 import React from 'react';
-import {Metadata} from "next";
-import Users from "@/components/users/Users";
 
-/*export const generateMetadata = async (): Promise<Metadata> => {
-    return {
-        title:'Users Page'
-    }
-}*/
-const UsersPage = () => {
+const UsersPage =async () => {
     return (
-        <div>
+        <div style={{
+            backgroundImage: "url('/back4.jpeg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundAttachment: "fixed",
+            width: "100vw",
+            height: "100vh",
+        }}>
             <Users/>
         </div>
     );
