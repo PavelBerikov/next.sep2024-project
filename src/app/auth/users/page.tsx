@@ -1,5 +1,7 @@
 import Users from '@/components/users/Users';
 import React from 'react';
+import SearchUserForm from "@/components/searchUsers/SearchUserForm";
+
 
 const UsersPage =async () => {
     return (
@@ -12,7 +14,11 @@ const UsersPage =async () => {
             width: "100vw",
             height: "100vh",
         }}>
-            <Users/>
+            <SearchUserForm/>
+
+                <Users/>
+
+
         </div>
     );
 };

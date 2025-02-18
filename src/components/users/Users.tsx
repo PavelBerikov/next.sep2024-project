@@ -4,10 +4,13 @@ import User from "@/components/user/User";
 import {getUsers} from "@/server-actions/serverActions";
 
 const Users = async  () => {
+
     const users:IUser[] =await getUsers()
     return (
-        <div>
-            {users.map(user => <User key={user.id} user={user} />)}
+        <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)'}}>
+            {
+                users.map(user => <User key={user.id} user={user} />)
+            }
         </div>
     );
 };

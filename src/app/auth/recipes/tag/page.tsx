@@ -1,10 +1,10 @@
 import React from 'react';
 
-const AuthPage = () => {
+const FilterByTagPage = () => {
     return (
         <div className="background"
              style={{
-                 backgroundImage: "url('/back.png')",
+                 backgroundImage: "url('/back2.jpeg')",
                  backgroundSize: "cover",
                  backgroundPosition: "center",
                  backgroundRepeat: "no-repeat",
@@ -12,9 +12,9 @@ const AuthPage = () => {
                  width: "100vw",
                  height: "100vh",
              }}>
-            Auth PAGE
+            filterByTagPage
         </div>
     );
 };
 
-export default AuthPage;
+export default FilterByTagPage;

@@ -9,8 +9,12 @@ export const recipesService = {
         return recipes
     },
     getRecipes: async ():Promise<IRecipe[]> => {
-        const {recipes} = await axiosInstance.get<IRecipesResponse>('auth/recipes').then(res => res.data);
+        const {recipes} = await axiosInstance.get<IRecipesResponse>('/recipes').then(res => res.data);
         console.log(recipes);
         return recipes
+    },
+    getSearchRecipe: async (search:string):Promise<IRecipesResponse> => {
+        const {recipes} = await axiosInstance.get(`recipes/search?q=${search}`).then((res) => res.data);
+        return recipes;
     }
 }

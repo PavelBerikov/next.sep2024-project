@@ -1,5 +1,6 @@
 import {FC} from 'react';
 import {IUser} from "@/interfaces/userInterface";
+import Link from "next/link";
 
 type PropsType = {
     user: IUser;
@@ -7,8 +8,8 @@ type PropsType = {
 
 const User: FC<PropsType> = ({user}) => {
     return (
-        <div>
-            {user.id} - {user.firstName}
+        <div className={'usersCard'}>
+            <Link href={{pathname:`/auth/users/${user.id}`, query:{user: JSON.stringify(user)} } }>{user.id} - {user.firstName} {user.lastName}</Link>
         </div>
     );
 };

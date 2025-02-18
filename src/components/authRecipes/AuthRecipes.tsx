@@ -1,15 +1,15 @@
+import { IRecipe } from '@/interfaces/recipesInterface';
 import React from 'react';
-import {recipesService} from "@/services/recipesService";
-import AuthRecipe from "@/components/authRecipe/AuthRecipe";
+import {getRecipes} from "@/server-actions/serverActions";
+import Recipe from "@/components/recipe/Recipe";
 
 const AuthRecipes = async () => {
-    const recipes= await recipesService.getRecipes();
-    console.log(recipes);
-    console.log('aaaaaa')
+    const recipes:IRecipe[] = await getRecipes()
     return (
-        <div>
+        <div style={{display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)'}}>
             {
-                recipes.map((recipe) => <AuthRecipe key={recipe.id} recipe={recipe} />)
+                recipes.map((recipe) => <Recipe key={recipe.id} recipe={recipe} />)
             }
         </div>
     );

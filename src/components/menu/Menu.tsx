@@ -2,17 +2,13 @@
 
 import  {FC} from 'react';
 import Link from 'next/link';
-import {useRouter} from "next/navigation";
 import './menu.css'
-import {getCookie} from "cookies-next";
 
 const Menu:FC = () => {
-    const loginUser = getCookie('user')
-    const router = useRouter();
     return (
         <div>
             <header style={{width: '100vw'}}>
-                {
+                {/*{
                     !loginUser &&
                     <div style={{height:'100%', width: '100%', display:"flex", justifyContent: 'center'}}>
                         <div style={{display: "flex", flexDirection: "column", alignItems: 'center'}}>
@@ -25,12 +21,13 @@ const Menu:FC = () => {
                             </div>
                         </div>
                     </div>
-                }
+                }*/}
                 {
-                    loginUser &&
+                    //loginUser &&
                     <div className={'menu dancing-script'}>
                         <ul>
-                            <li><Link href={'/auth/home'}>Home</Link></li>
+                            <li><Link href={'/auth  '}>Home</Link></li>
+                            <li><Link href={'/login'}>Login</Link></li>
                             <li><Link href={'/auth/users'}>Users</Link></li>
                             <li><Link href={'/auth/recipes'}>Recipes</Link></li>
                         </ul>
