@@ -22,7 +22,7 @@ const FilterTagPage:FC<Props> =async ({params}) => {
                  backgroundRepeat: "no-repeat",
                  backgroundAttachment: "fixed",
                  width: "100vw",
-                 height: "100vh",
+                 height: "100vh"
              }}>
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(8, 1fr)'}}>{
                 tags.map((tag, index) => <Tag key={index} tag={tag}/>)

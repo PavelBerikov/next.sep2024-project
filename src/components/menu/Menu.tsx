@@ -1,33 +1,34 @@
-'use client'
-
-import  {FC} from 'react';
+import  {FC } from 'react';
 import Link from 'next/link';
 import './menu.css'
+import {cookies} from "next/headers";
 
-const Menu:FC = () => {
+const Menu:FC = async () => {
+    const promise =await cookies();
+    const value = promise.get('accessToken')?.value;
     return (
         <div>
             <header style={{width: '100vw'}}>
-                {/*{
-                    !loginUser &&
+                {
+                    !value &&
                     <div style={{height:'100%', width: '100%', display:"flex", justifyContent: 'center'}}>
                         <div style={{display: "flex", flexDirection: "column", alignItems: 'center'}}>
                             <p style={{fontSize: '30px'}} className={'dancing-script'}>Don't you see the content on the
                                 page?</p>
                             <div>
-                                <button onClick={() => {
-                                    router.push('/login')
-                                }}>I can't see.</button>
+                                <Link href={'/login'}>
+                                    <button>I cant see.</button>
+                                </Link>
                             </div>
                         </div>
                     </div>
-                }*/}
+                }
                 {
-                    //loginUser &&
+                    value &&
                     <div className={'menu dancing-script'}>
                         <ul>
                             <li><Link href={'/auth  '}>Home</Link></li>
-                            <li><Link href={'/login'}>Login</Link></li>
+                            {/*<li><Link href={'/login'}>Login</Link></li>*/}
                             <li><Link href={'/auth/users'}>Users</Link></li>
                             <li><Link href={'/auth/recipes'}>Recipes</Link></li>
                         </ul>

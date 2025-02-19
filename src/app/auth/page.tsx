@@ -2,7 +2,7 @@ import React from 'react';
 
 const AuthPage = () => {
     return (
-        <div className="background"
+        <div
              style={{
                  backgroundImage: "url('/back.png')",
                  backgroundSize: "cover",
@@ -12,7 +12,6 @@ const AuthPage = () => {
                  width: "100vw",
                  height: "100vh",
              }}>
-            Auth PAGE
         </div>
     );
 };

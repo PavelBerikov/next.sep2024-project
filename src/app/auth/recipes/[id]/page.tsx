@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import {SearchParams} from "next/dist/server/request/search-params";
 import {IRecipe} from "@/interfaces/recipesInterface";
 import Link from "next/link";
-import {getRecipes} from "@/server-actions/serverActions";
 
 type Props = {
     params: Promise<{id:string}>,

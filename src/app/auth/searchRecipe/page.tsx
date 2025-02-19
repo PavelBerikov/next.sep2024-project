@@ -1,10 +1,9 @@
 import SearchRecipeForm from '@/components/searchRecipes/SearchRecipeForm';
 import React, {FC} from 'react';
 import SearchRecipesComponent from "@/components/SearchRecipesComponent/SearchRecipesComponent";
-import {SearchParams} from "next/dist/server/request/search-params";
 
 type Props = {
-    searchParams: SearchParams;
+    searchParams: Record<string, string | undefined>;
 }
 const SearchRecipePage:FC<Props> = async ({searchParams}) => {
     const search = await searchParams;

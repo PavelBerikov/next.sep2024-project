@@ -9,8 +9,11 @@ type PaginationProps = {
 
 const Pagination: FC<PaginationProps> = ({ count }) => {
     const searchParams = useSearchParams();
+    console.log(searchParams)
     const pathname = usePathname();
+    console.log(pathname)
     const router = useRouter();
+    console.log(router)
 
     // Получаем текущие значения page и skip
     const page = Number(searchParams.get("page")) || 1;

@@ -1,11 +1,12 @@
 import Users from '@/components/users/Users';
-import React from 'react';
 import SearchUserForm from "@/components/searchUsers/SearchUserForm";
 
+import React, {FC} from 'react';
 
-const UsersPage =async () => {
+
+const UsersPage:FC = () => {
     return (
-        <div style={{
+        <div className="background" style={{
             backgroundImage: "url('/back4.jpeg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -15,12 +16,11 @@ const UsersPage =async () => {
             height: "100vh",
         }}>
             <SearchUserForm/>
-
-                <Users/>
-
-
+            <Users/>
         </div>
     );
 };
 
 export default UsersPage;
+//};
+
