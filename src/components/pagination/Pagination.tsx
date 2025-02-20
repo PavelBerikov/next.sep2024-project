@@ -14,14 +14,10 @@ const Pagination: FC<PaginationProps> = ({ count }) => {
     console.log(pathname)
     const router = useRouter();
     console.log(router)
-
-    // Получаем текущие значения page и skip
     const page = Number(searchParams.get("page")) || 1;
     const skip = Number(searchParams.get("skip")) || 0;
-
-    // Функция для обновления URL с новыми параметрами
     const updateQuery = (newPage: number, newSkip: number) => {
-        const params = new URLSearchParams(searchParams.toString()); // Копируем текущие параметры
+        const params = new URLSearchParams(searchParams.toString());
         params.set("page", newPage.toString());
         params.set("skip", newSkip.toString());
 

@@ -7,7 +7,7 @@ type Props = {
 };
 
 const SearchUserComponent: FC<Props> = async ({ searchParams }) => {
-    const searchQuery = searchParams.search || ''; // Если null, заменяем на пустую строку
+    const searchQuery = searchParams.search || '';
     console.log('Search query:', searchQuery);
 
     const users = await getSearchUsers(searchQuery);

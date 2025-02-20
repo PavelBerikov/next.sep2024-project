@@ -16,7 +16,7 @@ export const usersServices = {
     },
 
     getSearchUsers: async (search: string): Promise<IUsersResponse> => {
-        const { users } = await axiosInstance.get(`/auth/users/search?q=${search}`).then((res) => res.data);
+        const { users } = await axiosInstance.get(`/users/search?q=${search}`).then((res) => res.data);
         return users;
     },
 };

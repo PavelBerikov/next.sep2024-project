@@ -29,10 +29,9 @@ export const getSearchUsers = async (search: string): Promise<IUser[]> => {
     if (!search.trim()) return [];
 
     console.log('Fetching users with search:', search);
-    const response = await fetch(`http://localhost:3000/auth/searchUser/api?search=${encodeURIComponent(search)}`);
-    const searchUsers = await response.json();
-    console.log('Response:', searchUsers);
-    return searchUsers;
+    const response:IUser[]= await fetch(`http://localhost:3000/auth/searchUser/api?search=${encodeURIComponent(search)}`).then(response => response.json());
+    console.log('qqqnewdiewjidjeiwjdiwjdijweijdiwjeidjwejd', response);
+    return response;
 };
 export const getSearchRecipes = async (search: string): Promise<IRecipe[]> => {
     if (!search.trim()) return [];
