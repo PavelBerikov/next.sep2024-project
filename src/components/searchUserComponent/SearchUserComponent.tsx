@@ -1,21 +1,21 @@
 import React, { FC } from 'react';
-import { getSearchUsers } from '@/server-actions/serverActions';
 import User from "@/components/user/User";
 import {cookies} from "next/headers";
 import {usersServices} from "@/services/usersServices";
+import Pagination from "@/components/pagination/Pagination";
 
 type Props = {
-    searchParams: Record<string, string | undefined>; // Исправляем тип
+    searchParams: Record<string, string | undefined>;
 };
 
 const SearchUserComponent: FC<Props> = async ({ searchParams }) => {
+    const page = searchParams.page ? Number(searchParams.page) : 1;
+    const skip = (page - 1) * 20;
     const cookiesStore = await cookies();
     const token = cookiesStore.get('accessToken')?.value;
     const searchQuery = searchParams.search || '';
-    console.log('Search query:', searchQuery);
 
-    const {users} = await usersServices.getSearchUsers(searchQuery, token);
-    console.log('Users:', users);
+    const {users} = await usersServices.getSearchUsers(searchQuery, token, skip);
 
     return (
         <div>
@@ -24,6 +24,7 @@ const SearchUserComponent: FC<Props> = async ({ searchParams }) => {
             ) : (
                 <p>No users found</p>
             )}
+            <Pagination count={users.length} currentPage={page} />
         </div>
     );
 };

@@ -8,8 +8,8 @@ export const recipesService = {
         console.log(recipes);
         return recipes
     },
-    getRecipes: async (token: string | undefined):Promise<IRecipesResponse> => {
-        const recipes = await axiosInstance.get<IRecipesResponse>('auth/recipes', {
+    getRecipes: async (token: string | undefined, skip=0):Promise<IRecipesResponse> => {
+        const recipes = await axiosInstance.get<IRecipesResponse>(`auth/recipes?limit=20&skip=${skip}`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -18,8 +18,8 @@ export const recipesService = {
         console.log(recipes);
         return recipes
     },
-    getSearchRecipe: async (search:string, token:string| undefined):Promise<IRecipesResponse> => {
-        const recipes = await axiosInstance.get(`auth/recipes/search?q=${search}`, {
+    getSearchRecipe: async (search:string, token:string| undefined, skip=0):Promise<IRecipesResponse> => {
+        const recipes = await axiosInstance.get(`auth/recipes/search?q=${search}&skip=${skip}&limit=20`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },

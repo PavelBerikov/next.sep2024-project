@@ -2,7 +2,6 @@ import { usersServices } from "@/services/usersServices";
 import { cookies } from "next/headers";
 
 export async function GET(req: Request) {
-    console.log('aaaaaaaaaaaaaaaaaa' , req.url);
     const cookiesStore = await cookies();
     const accessToken = cookiesStore.get("accessToken");
     if (!accessToken) {

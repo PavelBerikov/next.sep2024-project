@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import {SearchParams} from "next/dist/server/request/search-params";
 import {IRecipe} from "@/interfaces/recipesInterface";
 import Link from "next/link";
+import Tag from '@/components/tag/Tag';
 
 type Props = {
     params: Promise<{id:string}>,
@@ -42,9 +43,9 @@ const RecipeDetailsPage:FC<Props> =async ({searchParams}) => {
                         <b>Cook time</b> - {obj.cookTimeMinutes}
                         <div>
                             <b>Tags:</b>
-                            {/*{
+                            {
                                 obj.tags.map((tag, index) => <Tag tag={tag} key={index}/>)
-                            }*/}
+                            }
                         </div>
                     </div>
                 </div>

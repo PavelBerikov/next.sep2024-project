@@ -1,45 +1,35 @@
 "use client";
-
 import { FC } from "react";
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 type PaginationProps = {
     count: number;
+    currentPage: number;
 };
-
-const Pagination: FC<PaginationProps> = ({ count }) => {
-    const searchParams = useSearchParams();
-    console.log(searchParams)
-    const pathname = usePathname();
-    console.log(pathname)
+const Pagination: FC<PaginationProps> = ({ count, currentPage }) => {
     const router = useRouter();
-    console.log(router)
-    const page = Number(searchParams.get("page")) || 1;
-    const skip = Number(searchParams.get("skip")) || 0;
-    const updateQuery = (newPage: number, newSkip: number) => {
-        const params = new URLSearchParams(searchParams.toString());
+    const updateQuery = (newPage: number) => {
+        const params = new URLSearchParams(window.location.search);
         params.set("page", newPage.toString());
-        params.set("skip", newSkip.toString());
-
-        router.push(`${pathname}?${params.toString()}`, { scroll: false });
+        router.push(`?${params.toString()}`, { scroll: false });
     };
-
     const prev = () => {
-        if (page > 1) {
-            updateQuery(page - 1, skip - 20);
+        if (currentPage > 1) {
+            updateQuery(currentPage - 1);
         }
     };
-
     const next = () => {
-        updateQuery(page + 1, skip + 20);
+        updateQuery(currentPage + 1);
     };
-
     return (
         <div>
-            <button disabled={page === 1} onClick={prev}>Prev</button>
-            <button disabled={count < 20} onClick={next}>Next</button>
+            <button disabled={currentPage === 1} onClick={prev}>
+                Prev
+            </button>
+            <button disabled={count < 20} onClick={next}>
+                Next
+            </button>
         </div>
     );
 };
-
 export default Pagination;

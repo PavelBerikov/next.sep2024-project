@@ -1,7 +1,11 @@
 import AuthRecipes from "@/components/authRecipes/AuthRecipes";
 import SearchRecipeForm from "@/components/searchRecipes/SearchRecipeForm";
-
-export default function RecipesPage () {
+import {SearchParams} from "next/dist/server/request/search-params";
+import { FC } from "react";
+type Props = {
+    searchParams: SearchParams
+}
+const RecipesPage:FC<Props>= ({searchParams}) => {
     return (
         <div    className="background" style={{
             backgroundImage: "url('/back3.jpeg')",
@@ -12,7 +16,9 @@ export default function RecipesPage () {
             width: "100vw"
         }}>
             <SearchRecipeForm/>
-            <AuthRecipes/>
+            <AuthRecipes searchParams={searchParams}/>
         </div>
     );
 };
+
+export default RecipesPage;

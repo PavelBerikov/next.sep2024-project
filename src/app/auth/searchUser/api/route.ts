@@ -5,7 +5,7 @@ export async function GET(req: Request) {
     const searchQuery = searchParams.get('search') || ''; // Заменяем null на пустую строку
     console.log(searchQuery);
 
-    const searchUsers = await usersServices.getSearchUsers(searchQuery);
+    const searchUsers = await usersServices.getSearchUsers(searchQuery, '');
 
     return Response.json(searchUsers);
 }
