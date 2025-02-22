@@ -1,10 +1,14 @@
-import { IRecipe } from '@/interfaces/recipesInterface';
 import React from 'react';
-import {getRecipes} from "@/server-actions/serverActions";
 import Recipe from "@/components/recipe/Recipe";
+import {cookies} from "next/headers";
+import {recipesService} from "@/services/recipesService";
+import {IRecipesResponse} from "@/interfaces/recipesResponse";
 
 const AuthRecipes = async () => {
-    const recipes:IRecipe[] = await getRecipes()
+    const cookiesStore = await cookies();
+    const token = cookiesStore.get('accessToken')?.value;
+    const { recipes }: IRecipesResponse = await recipesService.getRecipes(token)
+    console.log(recipes)
     return (
         <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)'}}>
             {

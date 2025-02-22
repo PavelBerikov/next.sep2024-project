@@ -8,13 +8,24 @@ export const recipesService = {
         console.log(recipes);
         return recipes
     },
-    getRecipes: async ():Promise<IRecipe[]> => {
-        const {recipes} = await axiosInstance.get<IRecipesResponse>('/recipes').then(res => res.data);
+    getRecipes: async (token: string | undefined):Promise<IRecipesResponse> => {
+        const recipes = await axiosInstance.get<IRecipesResponse>('auth/recipes', {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true,
+        }).then(res => res.data);
         console.log(recipes);
         return recipes
     },
-    getSearchRecipe: async (search:string):Promise<IRecipesResponse> => {
-        const {recipes} = await axiosInstance.get(`recipes/search?q=${search}`).then((res) => res.data);
+    getSearchRecipe: async (search:string, token:string| undefined):Promise<IRecipesResponse> => {
+        const recipes = await axiosInstance.get(`auth/recipes/search?q=${search}`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true,
+        }).then(res => res.data);
+        console.log(recipes);
         return recipes;
     }
 }
